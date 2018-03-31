@@ -1,18 +1,28 @@
-class  Product extends React.Component{
-    render(){
+class Product extends React.Component {
+    render() {
         return (
             <div className="item">
                 <div className="image">
-                    <img src='images/products/no-image.svg'/>
+                    <img src={this.props.productImageUrl} />
                 </div>
                 <div className="middle aligned content">
+                    <div>
+                        <a href="#">
+                            <i className="large caret up icon"></i>
+                        </a>
+                        {this.props.title}
+                    </div>
                     <div className="description">
-                        <a href="#">Fort Knight</a>
-                        <p></p>
+                        <a href={this.props.url}>
+                            {this.props.title}
+                        </a>
+                        <p>
+                            {this.props.description}
+                        </p>
                     </div>
                     <div className="extra">
                         <span>Submitted by:</span>
-                        <img src="images/avatars/avatar.svg" alt="" className="ui avatar image"/
+                        <img src={this.props.submitterAvatarUrl} alt="" className="ui avatar image" /
                         ></div>
                 </div>
             </div>
@@ -20,11 +30,23 @@ class  Product extends React.Component{
     }
 }
 
-class ProductList extends React.Component{
-    render(){
+class ProductList extends React.Component {
+    render() {
+        const productComponents = Products.map(product => (
+            <Product
+                id={product.id}
+                title={product.title}
+                description={product.description}
+                url={product.url}
+                votes={product.votes}
+                submitterAvatarUrl={product.submitterAvatarUrl}
+                productImageUrl={product.productImageUrl}
+            />
+        ));
+
         return (
             <div className='ui unstackable items'>
-                <Product />
+                {productComponents}
             </div>
         )
     }
