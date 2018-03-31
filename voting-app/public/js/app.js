@@ -10,7 +10,7 @@ class Product extends React.Component {
                         <a href="#">
                             <i className="large caret up icon"></i>
                         </a>
-                        {this.props.title}
+                        {this.props.votes}
                     </div>
                     <div className="description">
                         <a href={this.props.url}>
@@ -32,7 +32,12 @@ class Product extends React.Component {
 
 class ProductList extends React.Component {
     render() {
-        const productComponents = Products.map(product => (
+
+        const products = Products.sort((a, b) => (
+            b.votes - a.votes
+        ));
+
+        const productComponents = products.map(product => (
             <Product
                 id={product.id}
                 title={product.title}
