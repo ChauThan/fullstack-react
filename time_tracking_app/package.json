@@ -1,0 +1,14 @@
+{
+  "name": "time_tracking_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Chau Than",
+  "license": "MIT",
+  "scripts": {
+    "go": "opener http:/localhost:3000 && npm run server",
+    "server": "./node_modules/.bin/http-server -p 3000"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
