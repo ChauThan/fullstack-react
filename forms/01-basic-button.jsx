@@ -4,8 +4,6 @@ class BasicButton01 extends React.Component {
 
   constructor(){
     super();
-
-    this.displayName = 'BasicButton01';
   }
 
   onGreatClick(evt) {

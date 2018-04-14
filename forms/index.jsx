@@ -2,9 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import One from './01-basic-button.jsx';
+import Two from './02-basic-button.jsx';
+import Three from "./03-basic-input.jsx";
+import Four from "./04-basic-input.jsx";
+import Five from './05-state-input.jsx';
+import Six from './06-state-input-multi.jsx';
 
 const routes = [
-  One
+  One, Two, Three, Four, Five, Six
 ];
 
 const location = window.location;
@@ -21,7 +26,7 @@ function createTOC() {
   return (
     <div>
       {routes.map((route, i) =>
-        <li key={i}><a href={`#/${(i + 1)}`}>{route.displayName}</a></li>
+        <li key={i}><a href={`#/${(i + 1)}`}>{route.displayName || route.name}</a></li>
       )}
     </div>
   );
