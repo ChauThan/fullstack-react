@@ -12,14 +12,6 @@ class CourseSelectComponent extends Component {
     _loading: false,
   }
 
-  // componentWillMount() {
-  //   this.setState({ _loading: true });
-  //   ApiClient.getCourse("core").then((courses) => {
-  //     this.setState({ courses, _loading: false });
-  //   });
-  // }
-
-
   componentWillReceiveProps(nextProps) {
     this.setState({
       department: nextProps.department,
