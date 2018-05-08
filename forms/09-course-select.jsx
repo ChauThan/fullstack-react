@@ -31,6 +31,9 @@ class CourseSelectComponent extends Component {
     const department = evt.target.value;
     const course = null;
 
+    this.props.onChange({ name: 'department', value: department });
+    this.props.onChange({ name: 'course', value: course });
+
     this.setState({ department, course });
 
     this.fetch(department);
@@ -39,6 +42,7 @@ class CourseSelectComponent extends Component {
   onSelectCourse = (evt) => {
     const course = evt.target.value;
     this.setState({ course });
+    this.props.onChange({ name: 'course', value: course });
   }
 
   fetch = (department) => {
@@ -91,8 +95,9 @@ class CourseSelectComponent extends Component {
 
     return (
       <div>
-        <div>{this.renderDepartmentSelect()}</div>
-        <div>{this.renderCourseSelect()}</div>
+        {this.renderDepartmentSelect()}
+        <br />
+        {this.renderCourseSelect()}
       </div>
     );
   }
@@ -101,7 +106,7 @@ class CourseSelectComponent extends Component {
 CourseSelectComponent.propTypes = {
   department: PropTypes.string,
   course: PropTypes.string,
-  //onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default CourseSelectComponent;
